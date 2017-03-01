@@ -1,10 +1,9 @@
 package com.geekhub.dao.impl;
 
 import com.geekhub.dao.CarDao;
+import com.geekhub.dao.mapper.CarMapper;
 import com.geekhub.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,7 @@ public class CarDaoImpl extends JdbcDaoSupport implements CarDao{
     public void saveCar(Car car) {
         this.getJdbcTemplate().update
                 ("INSERT INTO Car (Wheels_ID, Engine_ID) VALUES(?,?)",
-                        new Object[] { car.getWheel(), car.getEngine() });
+                        new Object[] { car.getWheelId(), car.getEngineId() });
     }
 
     public void updateCar(Car car) {
@@ -37,7 +36,8 @@ public class CarDaoImpl extends JdbcDaoSupport implements CarDao{
     }
 
     public Car findCarById(int carId) {
-        return null;
+        return this.getJdbcTemplate().queryForObject("select * from Car where Car_ID = ?",
+                new Object[]{carId}, new CarMapper());
     }
 
     public List<Car> getAllCar() {

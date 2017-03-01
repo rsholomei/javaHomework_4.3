@@ -1,6 +1,7 @@
 package com.geekhub.dao.impl;
 
 import com.geekhub.dao.EngineDao;
+import com.geekhub.dao.mapper.EngineMapper;
 import com.geekhub.model.Engine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -33,10 +34,12 @@ public class EngineDaoImpl extends JdbcDaoSupport implements EngineDao{
     }
 
     public Engine findEngineById(int engineId) {
-        return null;
+        return  this.getJdbcTemplate().queryForObject("select * from Engine where Engine_ID = ?",
+                new Object[]{engineId}, new EngineMapper());
     }
 
     public List<Engine> getAllEngine() {
-        return null;
+        return this.getJdbcTemplate().query("select * from Engine",
+                new EngineMapper());
     }
 }

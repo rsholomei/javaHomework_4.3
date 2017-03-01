@@ -2,10 +2,13 @@ package com.geekhub.model;
 
 public class Wheels {
     private Long id;
-    private Long summerTyres_id;
-    private Long winterTyres_id;
+    private Long tyres_Id;
 
     public Wheels(){}
+
+    public Wheels(Long tyres_Id){
+        this.tyres_Id = tyres_Id;
+    }
 
     public Long getId() {
         return id;
@@ -15,19 +18,19 @@ public class Wheels {
         this.id = id;
     }
 
-    public Long getSummerTyres_id() {
-        return summerTyres_id;
+    public Long getTyres() {
+        return tyres_Id;
     }
 
-    public void setSummerTyres_id(Long summerTyres_id) {
-        this.summerTyres_id = summerTyres_id;
+    public void setTyres(Long tyres_Id) {
+        this.tyres_Id = tyres_Id;
     }
 
-    public Long getWinterTyres_id() {
-        return winterTyres_id;
-    }
-
-    public void setWinterTyres_id(Long winterTyres_id) {
-        this.winterTyres_id = winterTyres_id;
+    @Override
+    public String toString() {
+        return "Wheels{" +
+                "id=" + id +
+                ", tyres_Id=" + tyres_Id +
+                '}';
     }
 }

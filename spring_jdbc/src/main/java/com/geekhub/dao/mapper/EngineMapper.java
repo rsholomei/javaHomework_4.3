@@ -1,4 +1,4 @@
-package com.geekhub.dao.impl;
+package com.geekhub.dao.mapper;
 
 import com.geekhub.model.Engine;
 import org.springframework.jdbc.core.RowMapper;
@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EngineMapper implements RowMapper<Engine> {
+public class EngineMapper implements RowMapper<Engine>{
     @Override
     public Engine mapRow(ResultSet rs, int rowNum) throws SQLException {
         Engine engine = new Engine();

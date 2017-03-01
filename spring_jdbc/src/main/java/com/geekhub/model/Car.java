@@ -2,12 +2,12 @@ package com.geekhub.model;
 
 public class Car {
     private Long id;
-    private int wheel_id;
-    private int engine_id;
+    private int wheels_Id;
+    private int engine_Id;
 
-    public Car(int wheel, int engine){
-        this.wheel_id = wheel;
-        this.engine_id = engine;
+    public Car(int wheels_Id, int engine_Id){
+        this.wheels_Id = wheels_Id;
+        this.engine_Id = engine_Id;
     }
 
     public Car(){}
@@ -20,19 +20,19 @@ public class Car {
         this.id = id;
     }
 
-    public int getWheel() {
-        return wheel_id;
+    public int getWheelId() {
+        return wheels_Id;
     }
 
-    public void setWheel(int wheel) {
-        this.wheel_id = wheel;
+    public void setWheelId(int wheels_Id) {
+        this.wheels_Id = wheels_Id;
     }
 
-    public int getEngine() {
-        return engine_id;
+    public int getEngineId() {
+        return engine_Id;
     }
 
-    public void setEngine(int engine) {
-        this.engine_id = engine;
+    public void setEngineId(int engine_Id) {
+        this.engine_Id = engine_Id;
     }
 }

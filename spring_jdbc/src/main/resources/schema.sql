@@ -11,23 +11,15 @@ CREATE TABLE Engine(
                 PRIMARY KEY (Engine_ID)
         );
 
-CREATE TABLE SummerTyres(
-                SummerTyres_ID   INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE Tyres(
+                Tyres_ID   INT NOT NULL AUTO_INCREMENT,
                 SizeTyres INT (20) NOT NULL,
                 NameTyres VARCHAR (20) NOT NULL,
-                PRIMARY KEY (SummerTyres_ID)
-        );
-
-CREATE TABLE WinterTyres(
-                WinterTyres_ID   INT NOT NULL AUTO_INCREMENT,
-                SizeTyres INT (20) NOT NULL,
-                NameTyres VARCHAR (20) NOT NULL,
-                PRIMARY KEY (WinterTyres_ID)
+                PRIMARY KEY (Tyres_ID)
         );
 
 CREATE TABLE Wheels(
                 Wheels_ID   INT NOT NULL AUTO_INCREMENT,
-                WinterTyres_ID INT (20),
-                SummerTyres_ID INT (20),
+                Tyres_ID VARCHAR (20),
                 PRIMARY KEY (Wheels_ID)
         );
