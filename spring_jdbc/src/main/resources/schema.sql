@@ -1,7 +1,8 @@
 CREATE TABLE Car(
                 Car_ID   INT NOT NULL AUTO_INCREMENT,
-                Wheels_ID INT (20),
-                Engine_ID INT (20),
+                NameCar VARCHAR (20) NOT NULL,
+                Wheels_ID INT (20) NOT NULL,
+                Engine_ID INT (20) NOT NULL,
                 PRIMARY KEY (Car_ID)
         );
 

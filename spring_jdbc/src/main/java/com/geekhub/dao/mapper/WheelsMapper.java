@@ -11,7 +11,7 @@ public class WheelsMapper implements RowMapper<Wheels> {
     public Wheels mapRow(ResultSet rs, int rowNum) throws SQLException {
         Wheels wheels = new Wheels();
         wheels.setId(rs.getLong("Wheels_ID"));
-        wheels.setTyres(rs.getLong("Tyres_ID"));
+        wheels.setTyresId(rs.getLong("Tyres_ID"));
         return wheels;
     }
 }

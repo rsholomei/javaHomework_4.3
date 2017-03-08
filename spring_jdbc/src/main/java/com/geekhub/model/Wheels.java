@@ -18,11 +18,11 @@ public class Wheels {
         this.id = id;
     }
 
-    public Long getTyres() {
+    public Long getTyresId() {
         return tyres_Id;
     }
 
-    public void setTyres(Long tyres_Id) {
+    public void setTyresId(Long tyres_Id) {
         this.tyres_Id = tyres_Id;
     }
 

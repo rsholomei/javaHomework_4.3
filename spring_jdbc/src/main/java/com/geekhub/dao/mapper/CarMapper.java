@@ -12,6 +12,7 @@ public class CarMapper implements RowMapper<Car> {
     public Car mapRow(ResultSet rs, int rowNum) throws SQLException {
         Car car = new Car();
         car.setId(rs.getLong("Car_ID"));
+        car.setNameCar(rs.getString("NameCar"));
         car.setWheelId(rs.getInt("Wheels_ID"));
         car.setEngineId(rs.getInt("Engine_ID"));
         return car;
