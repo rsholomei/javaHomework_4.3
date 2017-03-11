@@ -2,10 +2,10 @@ package com.geekhub.model;
 
 public class Tyres {
     private Long id;
-    private int size;
+    private Integer size;
     private String name;
 
-    public Tyres(int size, String name){
+    public Tyres(Integer size, String name){
         this.size = size;
         this.name = name;
     }
@@ -20,11 +20,11 @@ public class Tyres {
         this.id = id;
     }
 
-    public int getSize() {
+    public Integer getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
 

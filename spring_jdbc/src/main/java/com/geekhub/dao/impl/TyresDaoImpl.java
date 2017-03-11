@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Service
+@Transactional
 public class TyresDaoImpl extends JdbcDaoSupport implements TyresDao {
     @Autowired
     private DataSource dataSource;
@@ -23,24 +24,34 @@ public class TyresDaoImpl extends JdbcDaoSupport implements TyresDao {
     }
 
     @Override
-    @Transactional
     public void saveTyres(Tyres tyres) {
-        this.getJdbcTemplate().update
-                ("INSERT INTO Tyres (SizeTyres, NameTyres) VALUES(?,?)",
-                        new Object[] { tyres.getSize(), tyres.getName() });
+        try {
+            this.getJdbcTemplate().update
+                    ("INSERT INTO Tyres (SizeTyres, NameTyres) VALUES(?,?)",
+                            new Object[] { tyres.getSize(), tyres.getName() });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    @Transactional
     public void updateTyres(int tyresId, String name) {
-        this.getJdbcTemplate().update("update Tyres set NameTyres = ? where Tyres_ID = ? ",
-                name, tyresId);
+        try {
+            this.getJdbcTemplate().update("update Tyres set NameTyres = ? where Tyres_ID = ? ",
+                    name, tyresId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteTyres(int tyresId) {
-        this.getJdbcTemplate().update("delete from Tyres where Tyres_ID = ?",
-                tyresId);
+        try {
+            this.getJdbcTemplate().update("delete from Tyres where Tyres_ID = ?",
+                    tyresId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

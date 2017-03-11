@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Service
+@Transactional
 public class WheelsDaoImpl extends JdbcDaoSupport implements WheelsDao{
     @Autowired
     private DataSource dataSource;
@@ -23,24 +24,34 @@ public class WheelsDaoImpl extends JdbcDaoSupport implements WheelsDao{
     }
 
     @Override
-    @Transactional
     public void saveWheels(Wheels wheels) {
-        this.getJdbcTemplate().update
-                ("INSERT INTO Wheels (Tyres_ID) VALUES(?)",
-                        new Object[] { wheels.getTyresId() });
+        try {
+            this.getJdbcTemplate().update
+                    ("INSERT INTO Wheels (Tyres_ID) VALUES(?)",
+                            new Object[] { wheels.getTyresId() });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    @Transactional
     public void updateWheels(int wheelsId, int tyresId) {
-        this.getJdbcTemplate().update("update Wheels set Tyres_ID where Wheels_ID = ?",
-                tyresId, wheelsId);
+        try {
+            this.getJdbcTemplate().update("update Wheels set Tyres_ID where Wheels_ID = ?",
+                    tyresId, wheelsId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteWheels(int wheelsId) {
-        this.getJdbcTemplate().update("delete from Wheels where Wheels_ID = ?",
-                wheelsId);
+        try {
+            this.getJdbcTemplate().update("delete from Wheels where Wheels_ID = ?",
+                    wheelsId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

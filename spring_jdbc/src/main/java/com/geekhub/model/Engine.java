@@ -2,9 +2,9 @@ package com.geekhub.model;
 
 public class Engine {
     private Long id;
-    private double engineСapacity;
+    private Double engineСapacity;
 
-    public Engine(double engineСapacity){
+    public Engine(Double engineСapacity){
         this.engineСapacity = engineСapacity;
     }
 
@@ -18,11 +18,11 @@ public class Engine {
         this.id = id;
     }
 
-    public double getEngineСapacity() {
+    public Double getEngineСapacity() {
         return engineСapacity;
     }
 
-    public void setEngineСapacity(double engineСapacity) {
+    public void setEngineСapacity(Double engineСapacity) {
         this.engineСapacity = engineСapacity;
     }
 

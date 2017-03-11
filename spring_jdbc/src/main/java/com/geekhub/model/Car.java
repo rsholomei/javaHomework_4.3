@@ -3,10 +3,10 @@ package com.geekhub.model;
 public class Car {
     private Long id;
     private String nameCar;
-    private int wheels_Id;
-    private int engine_Id;
+    private Long wheels_Id;
+    private Long engine_Id;
 
-    public Car(String nameCar, int wheels_Id, int engine_Id){
+    public Car(String nameCar, Long wheels_Id, Long engine_Id){
         this.nameCar = nameCar;
         this.wheels_Id = wheels_Id;
         this.engine_Id = engine_Id;
@@ -22,19 +22,19 @@ public class Car {
         this.id = id;
     }
 
-    public int getWheelId() {
+    public Long getWheelId() {
         return wheels_Id;
     }
 
-    public void setWheelId(int wheels_Id) {
+    public void setWheelId(Long wheels_Id) {
         this.wheels_Id = wheels_Id;
     }
 
-    public int getEngineId() {
+    public Long getEngineId() {
         return engine_Id;
     }
 
-    public void setEngineId(int engine_Id) {
+    public void setEngineId(Long engine_Id) {
         this.engine_Id = engine_Id;
     }
 

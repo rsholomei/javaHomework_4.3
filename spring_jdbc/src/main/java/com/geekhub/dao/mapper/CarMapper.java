@@ -13,8 +13,8 @@ public class CarMapper implements RowMapper<Car> {
         Car car = new Car();
         car.setId(rs.getLong("Car_ID"));
         car.setNameCar(rs.getString("NameCar"));
-        car.setWheelId(rs.getInt("Wheels_ID"));
-        car.setEngineId(rs.getInt("Engine_ID"));
+        car.setWheelId(rs.getLong("Wheels_ID"));
+        car.setEngineId(rs.getLong("Engine_ID"));
         return car;
     }
 }

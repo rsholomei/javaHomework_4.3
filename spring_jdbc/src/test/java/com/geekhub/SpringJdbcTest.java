@@ -11,6 +11,7 @@ import com.geekhub.model.Tyres;
 import com.geekhub.model.Wheels;
 import org.junit.After;
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,8 +41,8 @@ public class SpringJdbcTest {
     public void init(){
         tyres = new Tyres(23, "Matador");
         wheels = new Wheels(1L);
-        engine = new Engine(5);
-        car = new Car("BMW", 1, 1);
+        engine = new Engine(5D);
+        car = new Car("BMW", 1L, 1L);
     }
 
     @After
@@ -53,11 +54,14 @@ public class SpringJdbcTest {
     }
 
     @Test
-    public void CarDaoTest(){
+    public void сar_dao_test(){
         carDao.saveCar(car);
+        Car car1 = new Car();
+        car1.setNameCar("Volvo");
+        carDao.saveCar(car1);
         assertEquals("BMW", carDao.findCarById(1).getNameCar());
         carDao.updateCar(1, 7, 5);
-        assertEquals(7L, carDao.findCarById(1).getWheelId());
+        assertEquals(7L, (long)carDao.findCarById(1).getWheelId());
         assertEquals(1, carDao.getAllCar().size());
         assertNotNull(carDao.getAllCar());
         assertTrue(1 == carDao.getAllCar().size());
@@ -67,7 +71,7 @@ public class SpringJdbcTest {
     public void EngineDaoTest(){
         engineDao.saveEngine(engine);
         assertTrue(5 == engineDao.findEngineById(1).getEngineСapacity());
-        engineDao.updateEngineById(1, new Engine(7));
+        engineDao.updateEngineById(1, new Engine(7D));
         assertTrue(7 == engineDao.findEngineById(1).getEngineСapacity());
         assertEquals(1, engineDao.getAllEngine().size());
         assertNotNull(engineDao.getAllEngine());

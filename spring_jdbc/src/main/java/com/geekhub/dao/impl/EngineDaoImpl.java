@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Service
+@Transactional
 public class EngineDaoImpl extends JdbcDaoSupport implements EngineDao{
     @Autowired
     private DataSource dataSource;
@@ -23,25 +24,34 @@ public class EngineDaoImpl extends JdbcDaoSupport implements EngineDao{
     }
 
     @Override
-    @Transactional
     public void saveEngine(Engine engine) {
-        this.getJdbcTemplate().update
-                ("INSERT INTO Engine (EngineСapacity) VALUES(?)",
-                        new Object[] { engine.getEngineСapacity() });
+        try {
+            this.getJdbcTemplate().update
+                    ("INSERT INTO Engine (EngineСapacity) VALUES(?)",
+                            new Object[] { engine.getEngineСapacity() });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    @Transactional
     public void updateEngineById(int engineId, Engine engine) {
-        this.getJdbcTemplate().update("update Engine set EngineСapacity = ? where Engine_ID = ?",
-                engine.getEngineСapacity(), engineId);
-
+        try {
+            this.getJdbcTemplate().update("update Engine set EngineСapacity = ? where Engine_ID = ?",
+                    engine.getEngineСapacity(), engineId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteEngine(int engineId) {
-        this.getJdbcTemplate().update("delete from Engine where Engine_ID = ?",
-                engineId);
+        try {
+            this.getJdbcTemplate().update("delete from Engine where Engine_ID = ?",
+                    engineId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
